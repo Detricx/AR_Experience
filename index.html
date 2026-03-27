@@ -9,37 +9,35 @@
 </head>
 <body>
   <a-scene 
-    mindar-image="imageTargetSrc: https://github.com/Detricx/AR_Experience/blob/main/targets.mind; autoStart: true;" 
+    mindar-image="imageTargetSrc: https://raw.githubusercontent.com/Detricx/AR_Experience/main/targets.mind; autoStart: true;" 
     color-space="sRGB" 
     renderer="colorManagement: true, physicallyCorrectLights" 
     vr-mode-ui="enabled: false" 
     device-orientation-permission-ui="enabled: false">
 
     <a-assets>
-      <video id="trailer" src="./assets/trailer1.mp4" loop="true"></video>
+      <video id="trailer" src="./assets/trailer1.mp4" loop="true" crossorigin="anonymous"></video>
     </a-assets>
 
-    <!-- Câmara -->
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <!-- TARGET: O poster do filme -->
     <a-entity mindar-image-target="targetIndex: 0">
       
-      <!-- Plano base do poster (debug - podes apagar depois) -->
+      <!-- Plano debug (podes apagar depois) -->
       <a-plane 
-        src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.png" 
         position="0 0 0" 
         width="1" 
         height="0.552" 
-        rotation="0 0 0">
+        rotation="0 0 0"
+        material="color: #222222; transparent: true; opacity: 0.1">
       </a-plane>
 
-      <!-- TRAILER aparece flutuando à frente do poster -->
+      <!-- O teu trailer 3D -->
       <a-video 
         src="#trailer"
         width="1.2" 
         height="0.675" 
-        position="0 0.4 0.1" 
+        position="0 0.45 0.15" 
         rotation="0 0 0"
         autoplay="true" 
         loop="true">
