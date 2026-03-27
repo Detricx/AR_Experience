@@ -18,6 +18,7 @@
         color-space="sRGB" 
         renderer="colorManagement: true, physicallyCorrectLights" 
         vr-mode-ui="enabled: false" 
+        xr-mode-ui="enabled: false"
         device-orientation-permission-ui="enabled: false">
 
         <a-assets>
@@ -50,6 +51,13 @@
                 playsinline="true">
             </a-video>
         </a-entity>
+
+        <!-- Botão de teste (aparece só se o vídeo não começar sozinho) -->
+        <button 
+            onclick="document.getElementById('trailer').play()" 
+            style="position:fixed; bottom:20px; left:20px; z-index:9999; padding:12px 20px; font-size:16px; background:#9C132C; color:white; border:none; border-radius:8px;">
+            ▶️ Forçar Play Trailer
+        </button>
     </a-scene>
 </body>
 </html>
