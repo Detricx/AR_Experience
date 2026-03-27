@@ -28,6 +28,7 @@
                 loop="true" 
                 muted="true" 
                 playsinline="true"
+                preload="auto"
                 crossorigin="anonymous">
             </video>
         </a-assets>
@@ -35,9 +36,6 @@
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
         <a-entity mindar-image-target="targetIndex: 0">
-            <!-- DEBUG: Caixa vermelha que deve aparecer quando o tracking funcionar -->
-            <a-box position="0 0.2 0.1" scale="0.3 0.3 0.3" color="red" material="transparent: true; opacity: 0.8"></a-box>
-
             <!-- Video do Trailer -->
             <a-video 
                 src="#trailer"
@@ -51,13 +49,22 @@
                 playsinline="true">
             </a-video>
         </a-entity>
-
-        <!-- Botão de teste (aparece só se o vídeo não começar sozinho) -->
-        <button 
-            onclick="document.getElementById('trailer').play()" 
-            style="position:fixed; bottom:20px; left:20px; z-index:9999; padding:12px 20px; font-size:16px; background:#9C132C; color:white; border:none; border-radius:8px;">
-            ▶️ Forçar Play Trailer
-        </button>
     </a-scene>
+
+    <!-- Script para forçar o autoplay quando o poster é detetado -->
+    <script>
+        const scene = document.querySelector('a-scene');
+        const video = document.getElementById('trailer');
+
+        scene.addEventListener('targetFound', () => {
+            console.log('✅ Poster detetado - a reproduzir trailer');
+            video.play().catch(err => console.log('Erro autoplay:', err));
+        });
+
+        // Opcional: para quando afastares o poster
+        scene.addEventListener('targetLost', () => {
+            video.pause();
+        });
+    </script>
 </body>
 </html>
