@@ -43,7 +43,13 @@
             <a-asset-item id="drums" src="assets/ProjectIVB/3D/Drum Kit.glb"></a-asset-item>
         </a-assets>
 
-        <a-camera position="0 0 0" look-controls="enabled: false" cursor="rayOrigin: cursor" raycaster="objects: .clickable; far: 1000"></a-camera>
+        <a-camera position="0 0 0" look-controls="enabled: false">
+            <!-- Cursor para interação mobile -->
+            <a-cursor
+                fuse="false"
+                raycaster="objects: .clickable; far: 1000">
+            </a-cursor>
+        </a-camera>
 
         <!-- Trailer Video -->
         <a-entity mindar-image-target="targetIndex: 0">
@@ -73,9 +79,9 @@
                     color="#44aa00" 
                     height="0.25" 
                     width="1.2" 
-                    position="0 0 0.01"
+                    position="0 0 0"
                     material="shader: flat; color: #44aa00; side: double; opacity: 0.95;"></a-plane>
-                    <a-text value="🎤 Banda" align="center" color="black" position="0 0 0.02" width="2.2"></a-text>
+                    <a-text value="🎤 Banda" aligns="center" color="black" position="0 0 0.02" width="2.2"></a-text>
                 </a-plane>
 
                 <!-- BOTÃO 2: MICROFONE -->
@@ -85,10 +91,10 @@
                     color="#44aa00"
                     height="0.25" 
                     width="1.2" 
-                    position="0 0 0.01"
+                    position="0 -0.35 0"
                     material="shader: flat; color: #44aa00; side: double; opacity: 0.95;">
 
-                    <a-text value="🎤 Microfone" align="center" color="black" position="0 0 0.02" width="2.2"></a-text>
+                    <a-text value="🎤 Microfone" aligns="center" color="black" position="0 0 0.02" width="2.2"></a-text>
                 </a-plane>
 
                 <!-- BOTÃO 3: GUITARRA -->
@@ -98,10 +104,10 @@
                     color="#44aa00"
                     height="0.25"
                     width="1.2" 
-                    position="0 0 0.01"
+                    position="0 -0.70 0"
                     material="shader: flat; color: #44aa00; side: double; opacity: 0.95;">
 
-                    <a-text value="🎸 Guitarra" align="center" color="black" position="0 0 0.02" width="2.2"></a-text>
+                    <a-text value="🎸 Guitarra" aligns="center" color="black" position="0 0 0.02" width="2.2"></a-text>
                 </a-plane>
 
                 <!-- BOTÃO 4: BATERIA -->
@@ -111,10 +117,10 @@
                     color="#44aa00" 
                     height="0.25" 
                     width="1.2" 
-                    position="0 0 0.01"
+                    position="0 -1.05 0"
                     material="shader: flat; color: #44aa00; side: double; opacity: 0.95;">
 
-                    <a-text value="🥁 Bateria" align="center" color="black" position="0 0 0.02" width="2.2"></a-text>
+                    <a-text value="🥁 Bateria" aligns="center" color="black" position="0 0 0.02" width="2.2"></a-text>
                 </a-plane>
 
             </a-entity>
@@ -123,8 +129,8 @@
 
             <!-- BANDA (info) -->
             <a-entity id="section-banda" visible="false">
-                <a-text value="Os Viv'O Baile\nMúsica de baile e animação" align="center" color="yellow" position="0 1.4 0" width="3"></a-text>
-                <a-text value="Email: contacto@vivo-baile.pt\nTel: 912345678" align="center" color="white" position="0 -1.3 0" width="3"></a-text>
+                <a-text value="Os Viv'O Baile\nMúsica de baile e animação" aligns="center" color="yellow" position="0 1.4 0" width="3"></a-text>
+                <a-text value="Email: contacto@vivo-baile.pt\nTel: 912345678" aligns="center" color="white" position="0 -1.3 0" width="3"></a-text>
             </a-entity>
 
             <!-- MICROFONE -->
@@ -154,7 +160,7 @@
                 position="0 -1.6 0"
                 material="shader: flat; color: #9C132C; side: double; opacity: 0.95;">
 
-                <a-text value="⬅️ Voltar ao Menu" align="center" color="white" position="0 0 0.02" width="1.8"></a-text>
+                <a-text value="⬅️ Voltar ao Menu" aligns="center" color="white" position="0 0 0.02" width="1.8"></a-text>
             </a-plane>
         </a-entity>
     </a-scene>
