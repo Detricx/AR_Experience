@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trailer AR</title>
+    <title>Trailer AR + Viv'O Baile</title>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <style>
@@ -18,7 +18,6 @@
     </style>
 </head>
 <body>
-    <!-- Project 1 -->
     <a-scene 
         mindar-image="imageTargetSrc: https://raw.githubusercontent.com/Detricx/AR_Experience/main/targets.mind; autoStart: true;" 
         color-space="sRGB" 
@@ -37,12 +36,17 @@
                 preload="auto"
                 crossorigin="anonymous">
             </video>
+
+            <a-asset-item id="mic" src="assets/ProjectIVB/3D/Microphone.glb"></a-asset-item>
+            <a-asset-item id="guitar" src="assets/ProjectIVB/3D/Electric guitar.glb"></a-asset-item>
+            <a-asset-item id="keyboard" src="assets/ProjectIVB/3D/Keyboard.glb"></a-asset-item>
+            <a-asset-item id="drums" src="assets/ProjectIVB/3D/Drum Kit.glb"></a-asset-item>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
+        <!-- Trailer Video -->
         <a-entity mindar-image-target="targetIndex: 0">
-            <!-- Video do Trailer -->
             <a-video 
                 src="#trailer"
                 width="1.2" 
@@ -55,30 +59,10 @@
                 playsinline="true">
             </a-video>
         </a-entity>
-    </a-scene>
 
-    <!-- Project 2 -->
-    <a-scene
-        mindar-image="imageTargetSrc: targets.mind;"
-        color-space="sRGB"
-        renderer="colorManagement: true"
-        vr-mode-ui="enabled:false"
-        device-orientation-permission-ui="enabled:false">
-
-        <a-assets>
-            <a-asset-item id="mic" src="assets/ProjectIVB/3D/Microphone.glb"></a-asset-item>
-            <a-asset-item id="guitar" src="assets/ProjectIVB/3D/Electric guitar.glb"></a-asset-item>
-            <a-asset-item id="keyboard" src="assets/ProjectIVB/3D/Keyboard.glb"></a-asset-item>
-            <a-asset-item id="drums" src="assets/ProjectIVB/3D/Drum Kit.glb"></a-asset-item>
-        </a-assets>
-
-        <a-camera position="0 0 0" look-controls="enabled:false"></a-camera>
-
-        <!-- MODELOS 3D -->
-        <a-entity mindar-image-target="targetIndex:0">
-
+        <a-entity mindar-image-target="targetIndex: 1">
             <!-- MICROFONE -->
-            <a-gltf-model
+            <a-gltf-model 
                 src="#mic"
                 position="0 0.4 -0.3"
                 scale="0.12 0.12 0.12">
@@ -106,7 +90,6 @@
             </a-gltf-model>
 
             <!-- MENU PRINCIPAL -->
-
             <a-entity position="0 0.8 0">
 
             <!-- BOTÃO BANDA -->
@@ -125,15 +108,14 @@
                     position="0 0 0.01">
                 </a-ring>
 
+                <a-text
+                    value="🎤 Banda"
+                    aligns="center"
+                    color="black"
+                    position="0 0 0.02"
+                    width="2">
+                </a-text>
             </a-plane>
-
-            <a-text
-                value="🎤 Banda"
-                aligns="center"
-                color="black"
-                position="0 0 0.02"
-                width="2">
-            </a-text>
 
             <!-- BOTÃO MÚSICOS -->
             <a-plane
@@ -151,15 +133,14 @@
                     position="0 0 0.01">
                 </a-ring>
 
+                <a-text
+                    value="🎸 Musicos"
+                    aligns="center"
+                    color="black"
+                    position="0 -0.35 0.02"
+                    width="2">
+                </a-text>
             </a-plane>
-
-            <a-text
-                value="🎸 Musicos"
-                aligns="center"
-                color="black"
-                position="0 -0.35 0.02"
-                width="2">
-            </a-text>
 
             <!-- BOTÃO CONTACTOS -->
             <a-plane
@@ -177,18 +158,16 @@
                     position="0 0 0.01">
                 </a-ring>
 
+                <a-text
+                    value="📞 Contactos"
+                    aligns="center"
+                    color="black"
+                    position="0 -0.7 0.02"
+                    width="2">
+                </a-text>
             </a-plane>
 
-            <a-text
-                value="📞 Contactos"
-                aligns="center"
-                color="black"
-                position="0 -0.7 0.02"
-                width="2">
-            </a-text>
-
             <!-- INFORMAÇÃO BANDA -->
-
             <a-text
                 value="Os Viv'O Baile\nMusica de baile e animacao"
                 aligns="center"
@@ -198,7 +177,6 @@
             </a-text>
 
             <!-- CONTACTOS -->
-
             <a-text
                 value="Email: contacto@vivo-baile.pt\nTel: 912345678"
                 aligns="center"
