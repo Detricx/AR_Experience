@@ -89,7 +89,7 @@
                     position="0 -0.35 0"
                     material="shader: flat; color: #44aa00; side: double; opacity: 0.95;">
 
-                    <a-text value="🎤 Microfone" aligns="center" color="black" position="0 -0.35 0.02" width="2.2"></a-text>
+                    <a-text value="🎤 Microfone" aligns="center" color="black" position="0 0 0.02" width="2.2"></a-text>
                 </a-plane>
 
                 <!-- BOTÃO 3: GUITARRA -->
@@ -102,7 +102,7 @@
                     position="0 -0.70 0"
                     material="shader: flat; color: #44aa00; side: double; opacity: 0.95;">
 
-                    <a-text value="🎸 Guitarra" aligns="center" color="black" position="0 -0.70 0.02" width="2.2"></a-text>
+                    <a-text value="🎸 Guitarra" aligns="center" color="black" position="0 0 0.02" width="2.2"></a-text>
                 </a-plane>
 
                 <!-- BOTÃO 4: BATERIA -->
@@ -115,7 +115,7 @@
                     position="0 -1.05 0"
                     material="shader: flat; color: #44aa00; side: double; opacity: 0.95;">
 
-                    <a-text value="🥁 Bateria" aligns="center" color="black" position="0 -1.05 0.02" width="2.2"></a-text>
+                    <a-text value="🥁 Bateria" aligns="center" color="black" position="0 0 0.02" width="2.2"></a-text>
                 </a-plane>
 
             </a-entity>
@@ -203,14 +203,19 @@
             });
         }
 
-        // Cliques nos botões do menu
-        document.getElementById('btn-banda').addEventListener('click', () => showSection('banda'));
-        document.getElementById('btn-mic').addEventListener('click', () => showSection('mic'));
-        document.getElementById('btn-guitar').addEventListener('click', () => showSection('guitar'));
-        document.getElementById('btn-drums').addEventListener('click', () => showSection('drums'));
+        // Esperar que o MindAR/A-Frame carregue completamente para garantir que os elementos estão disponíveis
+        const sceneEl = document.querySelector('a-scene');
+        
+        sceneEl.addEventListener('loaded', () => {
+            // Cliques nos botões do menu
+            document.getElementById('btn-banda').addEventListener('click', () => showSection('banda'));
+            document.getElementById('btn-mic').addEventListener('click', () => showSection('mic'));
+            document.getElementById('btn-guitar').addEventListener('click', () => showSection('guitar'));
+            document.getElementById('btn-drums').addEventListener('click', () => showSection('drums'));
 
-        // Botão Voltar
-        voltar.addEventListener('click', backToMenu);
+            // Botão Voltar
+            voltar.addEventListener('click', backToMenu);
+        });
     </script>
 </body>
 </html>
